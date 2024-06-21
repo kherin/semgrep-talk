@@ -1,0 +1,17 @@
+rules:
+  - id: no-unused-vars
+    patterns:
+      - pattern-either:
+          - pattern: |
+              const $X = ...;
+          - pattern: |
+              let $X = ...;
+          - pattern: |
+              var $X = ...;
+        pattern-not-inside:
+          - pattern: |
+              $X = ...
+    message: Avoid declaring unused variables.
+    severity: WARNING
+    languages: [javascript, typescript]
+    path: .*\.jsx?
